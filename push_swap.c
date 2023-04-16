@@ -19,32 +19,69 @@ char	**argv_stack(int argc, char **argv)
 		}
 		argv_stack[i] = NULL;
 	}
+	check_int_numbers(argv_stack);
 	return (argv_stack);
 }
 
-int	*stack(char **argv_stack)
+t_stack	init_stack_a(char **argv_stack)
 {
-	int	*stack;
-	int	len;
-	int	i;
+	t_stack	stack_a;
+	int		len;
+	int		i;
 
 	len = 0;
 	i = 0;
 	while (argv_stack[len] != NULL)
 		len++;
-	stack = malloc(sizeof(int) * len);
+	stack_a.len = len;
+	stack_a.values = malloc(sizeof(int) * len);
 	while (i < len)
 	{
-		stack[i] = ft_atoi(argv_stack[i]);
+		stack_a.values[i] = push_swap_atoi(argv_stack[i]);
 		i++;
 	}
-	return (stack);
+	check_dup_stack_a(stack_a);
+	stack_a.id = 'a';
+	return (stack_a);
+}
+
+t_stack	init_stack_b(t_stack stack_a)
+{
+	t_stack	stack_b;
+	int		i;
+
+	i = 0;
+	stack_b.len = stack_a.len;
+	stack_b.simplified_values = malloc(sizeof(int) * stack_a.len);
+	while (i < stack_b.len)
+	{
+		stack_b.simplified_values[i] = 0;
+		i++;
+	}
+	stack_b.id = 'b';
+	return (stack_b);
 }
 
 int	main(int argc, char **argv)
 {
-	int	*stack_values;
+	t_stack	stack_a;
+	t_stack	stack_b;
 
-	stack_values = stack(argv_stack(argc, argv));
+	if (argc == 1)
+		int_error();
+	stack_a = init_stack_a(argv_stack(argc, argv));
+	stack_a = simplified_values(stack_a);
+	stack_b = init_stack_b(stack_a);
+	printfunction(stack_a, stack_b);
+//	swap(stack_a);
+//	swap_ab(stack_a, stack_b);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	printfunction(stack_a, stack_b);
+	rotate(stack_a);
+	rotate(stack_a);
+	printfunction(stack_a, stack_b);
 	return (0);
 }

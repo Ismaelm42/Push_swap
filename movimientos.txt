@@ -4,7 +4,7 @@ nada si hay uno o menos elementos.
 sb : swap b - intercambia los dos primeros elementos encima del stack b. No hace
 nada si hay uno o menos elementos.
 
-ss : swap a y swap b a la vez.
+ss : swap a y swap b a la vez. (si la columna b está vacia, se hace el swap de ambas? se debería poner solo swap a, entonces, no?)
 
 pa : push a - toma el primer elemento del stack b y lo pone encima del stack a.
 No hace nada si b está vacío.

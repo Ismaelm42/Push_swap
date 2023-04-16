@@ -2,7 +2,7 @@
 
 NAME = a.out
 
-SRC = push_swap.c
+SRC = push_swap.c	push_swap_utils.c	push_swap_movs.c
 
 OBJT = $(SRC:.c=.o)
 
@@ -34,5 +34,6 @@ fclean: clean
 #cambiar por $(MAKE) fclean, más comprensible
 re: fclean all
 	make clean
+	make -C ./libft clean
 
 .PHONY : all clean fclean re
