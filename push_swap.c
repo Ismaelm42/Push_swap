@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/17 12:22:32 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/17 14:28:55 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -72,16 +83,13 @@ int	main(int argc, char **argv)
 	stack_a = init_stack_a(argv_stack(argc, argv));
 	stack_a = simplified_values(stack_a);
 	stack_b = init_stack_b(stack_a);
-	printfunction(stack_a, stack_b);
-//	swap(stack_a);
-//	swap_ab(stack_a, stack_b);
-	push(stack_b, stack_a);
 	push(stack_b, stack_a);
 	push(stack_b, stack_a);
 	push(stack_b, stack_a);
 	printfunction(stack_a, stack_b);
-	rotate(stack_a);
-	rotate(stack_a);
+	rev_rotate(stack_a);
+	printfunction(stack_a, stack_b);
+	push(stack_b, stack_a);
 	printfunction(stack_a, stack_b);
 	return (0);
 }

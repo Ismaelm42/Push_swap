@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/17 12:22:24 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/17 14:16:33 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	int_error(void)
@@ -107,7 +119,6 @@ t_stack	simplified_values(t_stack stack_a)
 	stack_a.simplified_values = malloc(sizeof(int) * stack_a.len);
 	stack_a.simplified_values[lowest_nbr(stack_a)] = 1;
 	n = stack_a.values[lowest_nbr(stack_a)] + 1;
-
 	counter = 1;
 	while (counter < stack_a.len)
 	{

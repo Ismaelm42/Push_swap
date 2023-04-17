@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/17 12:22:43 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/17 14:10:57 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -28,11 +39,8 @@ void		swap(t_stack stack);
 void		swap_ab(t_stack stack_a, t_stack stack_b);
 void		push(t_stack stack_a, t_stack stack_b);
 void		rotate(t_stack stack);
-
-
-
-
-
+void		rev_rotate(t_stack stack);
+void		rev_rotate_ab(t_stack stack_a, t_stack stack_b);
 void		printfunction(t_stack stack_a, t_stack stack_b);
 
 #endif

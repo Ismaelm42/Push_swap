@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_movs.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/17 12:22:13 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/17 14:25:24 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap(t_stack stack)
@@ -102,4 +114,47 @@ void	rotate_ab(t_stack stack_a, t_stack stack_b)
 	stack_a.print_flag = 0;
 	stack_b.print_flag = 0;
 	ft_putstr_fd("rr\n", 1);
+}
+
+void	rev_rotate(t_stack stack)
+{
+	int	i;
+	int	j;
+	int	nbr;
+	int	save;
+
+	i = 0;
+	while (i < stack.len && stack.simplified_values[i] == 0)
+		i++;
+	if (i < stack.len - 1)
+	{
+		nbr = stack.simplified_values[i];
+		stack.simplified_values[i] = stack.simplified_values[stack.len - 1];
+		j = (i + 1);
+		while (j < stack.len)
+		{
+			save = stack.simplified_values[j];
+			stack.simplified_values[j] = nbr;
+			nbr = save;
+			j++;
+		}
+	}
+	if (stack.print_flag != 1)
+	{
+		// ft_putstr_fd("rr", 1);
+		// ft_putchar_fd(stack.id, 1);
+		// ft_putstr_fd("\n", 1);
+		ft_printf("rr%c\n", stack.id);
+	}
+}
+
+void	rev_rotate_ab(t_stack stack_a, t_stack stack_b)
+{
+	stack_a.print_flag = 1;
+	stack_b.print_flag = 1;
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+	stack_a.print_flag = 0;
+	stack_b.print_flag = 0;
+	ft_putstr_fd("rrr\n", 1);
 }
