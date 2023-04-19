@@ -39,7 +39,7 @@ int			move_counter_rotate(int i, t_stack stack);
 int			move_counter_rev_rotate(int i, t_stack stack);
 int			move_counter_supple(int i, t_stack stack);
 int			target_stack_index(int i, t_stack stack_a, t_stack stack_b);
-int			move_variation(int i, t_stack stack_a, t_stack stack_b)
+int			move_variation(int i, t_stack stack_a, t_stack stack_b);
 int			array_check(t_stack stack);
 t_stack		array_filler(t_stack stack_a, t_stack stack_b);
 
