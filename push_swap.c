@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 12:22:32 by imoro-sa          #+#    #+#             */
-/*   Updated: 2023/04/17 14:28:55 by imoro-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -86,10 +75,9 @@ int	main(int argc, char **argv)
 	push(stack_b, stack_a);
 	push(stack_b, stack_a);
 	push(stack_b, stack_a);
-	printfunction(stack_a, stack_b);
-	rev_rotate(stack_a);
-	printfunction(stack_a, stack_b);
 	push(stack_b, stack_a);
+	printfunction(stack_a, stack_b);
+	array_filler(stack_a, stack_b);
 	printfunction(stack_a, stack_b);
 	return (0);
 }

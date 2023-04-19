@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap_movs.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 12:22:13 by imoro-sa          #+#    #+#             */
-/*   Updated: 2023/04/17 14:25:24 by imoro-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	swap(t_stack stack)
@@ -18,18 +6,13 @@ void	swap(t_stack stack)
 	int	nbr;
 
 	i = 0;
-	nbr = 0;
-	while (i < stack.len)
-	{
-		if (stack.simplified_values[i] > 0)
-			nbr++;
+	while (i < stack.len && stack.simplified_values[i] == 0)
 		i++;
-	}
-	if (nbr > 1)
+	if (i < stack.len - 1)
 	{
-		nbr = stack.simplified_values[0];
-		stack.simplified_values[0] = stack.simplified_values[1];
-		stack.simplified_values[1] = nbr;
+		nbr = stack.simplified_values[i];
+		stack.simplified_values[i] = stack.simplified_values[i + 1];
+		stack.simplified_values[i + 1] = nbr;
 	}
 	if (stack.print_flag != 1)
 	{
@@ -141,10 +124,10 @@ void	rev_rotate(t_stack stack)
 	}
 	if (stack.print_flag != 1)
 	{
-		// ft_putstr_fd("rr", 1);
-		// ft_putchar_fd(stack.id, 1);
-		// ft_putstr_fd("\n", 1);
-		ft_printf("rr%c\n", stack.id);
+		ft_putstr_fd("rr", 1);
+		ft_putchar_fd(stack.id, 1);
+		ft_putstr_fd("\n", 1);
+		// ft_printf("rr%c\n", stack.id);
 	}
 }
 

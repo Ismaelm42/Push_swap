@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 12:22:24 by imoro-sa          #+#    #+#             */
-/*   Updated: 2023/04/17 14:16:33 by imoro-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	int_error(void)
@@ -200,9 +188,9 @@ void	printfunction(t_stack stack_a, t_stack stack_b)
 	printf("\n");
 	while (i < stack_a.len)
 	{
-		printf("%d  %d\n", stack_a.simplified_values[i], stack_b.simplified_values[i]);
+		printf("%d  %d  %d\n", stack_a.simplified_values[i], stack_b.simplified_values[i], stack_b.move_cost[i]);
 		i++;
 	}
-	printf("_  _\n");
-	printf("a  b\n");
+	printf("_  _  _\n");
+	printf("a  b  m\n");
 }

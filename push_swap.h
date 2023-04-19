@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 12:22:43 by imoro-sa          #+#    #+#             */
-/*   Updated: 2023/04/17 14:10:57 by imoro-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -19,10 +8,12 @@ typedef struct s_stack
 {
 	int		*simplified_values;
 	int		*values;
+	int		*move_cost;
+	char	*move_var;
 	int		print_flag;
 	int		len;
 	char	id;
-}	t_stack;
+}			t_stack;
 
 char		**argv_stack(int argc, char **argv);
 t_stack		init_stack_a(char **argv_stack);
@@ -39,8 +30,22 @@ void		swap(t_stack stack);
 void		swap_ab(t_stack stack_a, t_stack stack_b);
 void		push(t_stack stack_a, t_stack stack_b);
 void		rotate(t_stack stack);
+void		rotate_ab(t_stack stack_a, t_stack stack_b);
 void		rev_rotate(t_stack stack);
 void		rev_rotate_ab(t_stack stack_a, t_stack stack_b);
+
+void		basic_algorithm(t_stack stack_a);
+int			move_counter_rotate(int i, t_stack stack);
+int			move_counter_rev_rotate(int i, t_stack stack);
+int			move_counter_supple(int i, t_stack stack);
+int			target_stack_index(int i, t_stack stack_a, t_stack stack_b);
+int			move_variation(int i, t_stack stack_a, t_stack stack_b)
+int			array_check(t_stack stack);
+t_stack		array_filler(t_stack stack_a, t_stack stack_b);
+
+
+
+
 void		printfunction(t_stack stack_a, t_stack stack_b);
 
 #endif
