@@ -62,22 +62,50 @@ t_stack	init_stack_b(t_stack stack_a)
 	return (stack_b);
 }
 
-int	main(int argc, char **argv)
+int	lowest_nbr(t_stack stack_a)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	int	n;
+	int	i;
+	int	low_nbr;
 
-	if (argc == 1)
-		int_error();
-	stack_a = init_stack_a(argv_stack(argc, argv));
-	stack_a = simplified_values(stack_a);
-	stack_b = init_stack_b(stack_a);
-	push(stack_b, stack_a);
-	push(stack_b, stack_a);
-	push(stack_b, stack_a);
-	push(stack_b, stack_a);
-	printfunction(stack_a, stack_b);
-	array_filler(stack_a, stack_b);
-	printfunction(stack_a, stack_b);
-	return (0);
+	n = 1;
+	i = 0;
+	low_nbr = stack_a.values[0];
+	while (n < stack_a.len)
+	{
+		if (stack_a.values[n] < low_nbr)
+		{
+			low_nbr = stack_a.values[n];
+			i = n;
+		}
+		n++;
+	}
+	return (i);
+}
+
+t_stack	simplified_values(t_stack stack_a)
+{
+	int	i;
+	int	n;
+	int	counter;
+
+	stack_a.simplified_values = malloc(sizeof(int) * stack_a.len);
+	stack_a.simplified_values[lowest_nbr(stack_a)] = 1;
+	n = stack_a.values[lowest_nbr(stack_a)] + 1;
+	counter = 1;
+	while (counter < stack_a.len)
+	{
+		i = 0;
+		while (i < stack_a.len)
+		{
+			if (stack_a.values[i] == n)
+			{
+				stack_a.simplified_values[i] = counter + 1;
+				counter++;
+			}
+			i++;
+		}
+		n++;
+	}
+	return (stack_a);
 }

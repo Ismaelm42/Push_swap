@@ -1,8 +1,14 @@
 
 
-NAME = a.out
+NAME = push_swap
 
-SRC = push_swap.c	push_swap_utils.c	push_swap_movs.c
+SRC =	main.c push_swap.c		\
+		push_swap_check.c		\
+		push_swap_movs.c		\
+		push_swap_ab_movs.c		\
+		push_swap_target.c		\
+		push_swap_cost.c		\
+		push_swap_algorithm.c	\
 
 OBJT = $(SRC:.c=.o)
 
