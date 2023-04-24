@@ -28,26 +28,27 @@ typedef struct s_movs
 	int		ab;
 }			t_movs;
 
-//init stacks
+//init
 char		**argv_stack(int argc, char **argv);
 t_stack		init_stack_a(char **argv_stack);
 t_stack		init_stack_b(t_stack stack_a);
-
-//check 
-void		int_error(void);
-void		check_int_numbers(char **argv_stack);
-long int	push_swap_atoi(const char *str);
-void		check_dup_stack_a(t_stack stack_a);
 int			lowest_nbr(t_stack stack_a);
 t_stack		simplified_values(t_stack stack_a);
 
-//movements
+//check
+void		check_int_numbers(char **argv_stack);
+void		check_dup_stack_a(t_stack stack_a);
+void		check_already_sorted(t_stack stack_a);
+
+//movs
 void		swap(t_stack stack);
-void		swap_ab(t_stack stack_a, t_stack stack_b);
 void		push(t_stack stack_a, t_stack stack_b);
 void		rotate(t_stack stack);
-void		rotate_ab(t_stack stack_a, t_stack stack_b);
 void		rev_rotate(t_stack stack);
+
+//movs_ab
+void		swap_ab(t_stack stack_a, t_stack stack_b);
+void		rotate_ab(t_stack stack_a, t_stack stack_b);
 void		rev_rotate_ab(t_stack stack_a, t_stack stack_b);
 
 //target
@@ -58,20 +59,30 @@ int			target_stack_index(int i, t_stack stack_a, t_stack stack_b);
 //cost
 int			move_rotate(int i, t_stack stack);
 int			move_rev_rotate(int i, t_stack stack);
-int			abs_value(int a);
 int			select_move(int i, t_stack stack);
 t_cost		move_cost_counter(int i, t_stack stack_a, t_stack stack_b);
 
+//make_moves
+t_movs		move_values(t_cost move);
+void		make_move_stack_a(int times, t_stack stack);
+void		make_move_stack_b(int times, t_stack stack);
+void		make_move_stack_ab(int times, t_stack stack_a, t_stack stack_b);
+void		make_moves(t_stack stack_a, t_stack stack_b, t_cost move);
+
 //algorithm
 t_stack		basic_algorithm(t_stack stack_a);
-int			empty_array_check(t_stack stack);
 void		push_to_stack_b(t_stack stack_a, t_stack stack_b);
-void		move_values(t_stack stack_a, t_stack stack_b, t_cost move);
-void		make_move(t_stack stack_a, t_stack stack_b, t_movs times);
-void		sorting_stacks(t_stack stack_a, t_stack stack_b);
+void		sorting_stack(t_stack stack_a, t_stack stack_b);
 void		rearrange_stack(t_stack stack);
+
+//utils
+long int	push_swap_atoi(const char *str);
+void		int_error(void);
+int			abs_value(int a);
+int			empty_array_check(t_stack stack);
 
 //extra
 void		printfunction(t_stack stack_a, t_stack stack_b);
+void		ft_leaks(void);
 
 #endif

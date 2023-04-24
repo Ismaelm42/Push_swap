@@ -15,11 +15,13 @@ int	main(int argc, char **argv)
 	//printf("\nORIGINAL FUNCTION\n");
 	//printfunction(stack_a, stack_b);
 	stack_a = basic_algorithm(stack_a);
-	//printf("\nBASIC ALGORITHM\n\n");
-	//printfunction(stack_a, stack_b);
-	sorting_stacks(stack_a, stack_b);
+	// printf("\nBASIC ALGORITHM\n\n");
+	// printfunction(stack_a, stack_b);
+	sorting_stack(stack_a, stack_b);
+	free(stack_b.simplified_values);
 	rearrange_stack(stack_a);
-	//printf("\nRESULT!!!!!!!\n\n");
+	printf("\nRESULT!!!!!!!\n\n");
 	printfunction(stack_a, stack_b);
+	free(stack_a.simplified_values);
 	return (0);
 }

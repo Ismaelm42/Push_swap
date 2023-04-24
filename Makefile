@@ -2,13 +2,16 @@
 
 NAME = push_swap
 
-SRC =	main.c push_swap.c		\
+SRC =	main.c					\
+		push_swap_init.c		\
 		push_swap_check.c		\
 		push_swap_movs.c		\
-		push_swap_ab_movs.c		\
+		push_swap_movs_ab.c		\
 		push_swap_target.c		\
 		push_swap_cost.c		\
+		push_swap_make_moves.c	\
 		push_swap_algorithm.c	\
+		push_swap_utils.c		\
 
 OBJT = $(SRC:.c=.o)
 
