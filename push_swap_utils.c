@@ -48,7 +48,7 @@ int	empty_array_check(t_stack stack)
 	i = 0;
 	while (stack.simplified_values[i] == 0 && i < stack.len)
 		i++;
-	if (i == stack.len)
+	if (i == stack.len && stack.simplified_values[i - 1] == 0)
 		return (-1);
 	return (0);
 }

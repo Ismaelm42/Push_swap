@@ -10,7 +10,7 @@ SRC =	main.c					\
 		push_swap_target.c		\
 		push_swap_cost.c		\
 		push_swap_make_moves.c	\
-		push_swap_algorithm.c	\
+		push_swap.c				\
 		push_swap_utils.c		\
 
 OBJT = $(SRC:.c=.o)

@@ -9,6 +9,7 @@ void	swap_ab(t_stack stack_a, t_stack stack_b)
 	stack_a.print_flag = 0;
 	stack_b.print_flag = 0;
 	ft_putstr_fd("ss\n", 1);
+
 }
 
 void	rotate_ab(t_stack stack_a, t_stack stack_b)

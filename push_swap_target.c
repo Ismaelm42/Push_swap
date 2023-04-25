@@ -7,6 +7,7 @@ int	target_low_limit(int surface, t_stack stack)
 	int	target;
 
 	nbr = stack.simplified_values[surface];
+	target = surface;
 	n = surface + 1;
 	while (n < stack.len)
 	{
@@ -17,8 +18,6 @@ int	target_low_limit(int surface, t_stack stack)
 		}	
 		n++;
 	}
-	if (target == 0)
-		return (surface);
 	return (target);
 }
 

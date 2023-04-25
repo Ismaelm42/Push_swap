@@ -74,6 +74,7 @@ t_stack		basic_algorithm(t_stack stack_a);
 void		push_to_stack_b(t_stack stack_a, t_stack stack_b);
 void		sorting_stack(t_stack stack_a, t_stack stack_b);
 void		rearrange_stack(t_stack stack);
+void		push_swap(int argc, char **argv);
 
 //utils
 long int	push_swap_atoi(const char *str);
@@ -81,8 +82,14 @@ void		int_error(void);
 int			abs_value(int a);
 int			empty_array_check(t_stack stack);
 
+//bonus
+t_stack		transpose_values(t_stack stack_a);
+void		check_sort_result(t_stack stack_a);
+void		check_and_make_moves(t_stack stack_a, t_stack stack_b, char *output);
+
 //extra
 void		printfunction(t_stack stack_a, t_stack stack_b);
+
 void		ft_leaks(void);
 
 #endif
