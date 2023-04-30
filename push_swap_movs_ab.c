@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_movs_ab.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:27:01 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/26 10:34:33 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap_ab(t_stack stack_a, t_stack stack_b)
@@ -8,8 +20,7 @@ void	swap_ab(t_stack stack_a, t_stack stack_b)
 	swap(stack_b);
 	stack_a.print_flag = 0;
 	stack_b.print_flag = 0;
-	ft_putstr_fd("ss\n", 1);
-
+	ft_printf("ss\n");
 }
 
 void	rotate_ab(t_stack stack_a, t_stack stack_b)
@@ -20,7 +31,7 @@ void	rotate_ab(t_stack stack_a, t_stack stack_b)
 	rotate(stack_b);
 	stack_a.print_flag = 0;
 	stack_b.print_flag = 0;
-	ft_putstr_fd("rr\n", 1);
+	ft_printf("rr\n");
 }
 
 void	rev_rotate_ab(t_stack stack_a, t_stack stack_b)
@@ -31,5 +42,5 @@ void	rev_rotate_ab(t_stack stack_a, t_stack stack_b)
 	rev_rotate(stack_b);
 	stack_a.print_flag = 0;
 	stack_b.print_flag = 0;
-	ft_putstr_fd("rrr\n", 1);
+	ft_printf("rrr\n");
 }

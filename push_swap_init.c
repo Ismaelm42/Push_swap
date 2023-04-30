@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_init.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:25:48 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/28 12:24:40 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -40,8 +51,8 @@ t_stack	init_stack_a(char **argv_stack)
 		stack_a.values[i] = push_swap_atoi(argv_stack[i]);
 		i++;
 	}
+	free_split(argv_stack);
 	check_dup_stack_a(stack_a);
-	check_already_sorted(stack_a);
 	stack_a.id = 'a';
 	return (stack_a);
 }

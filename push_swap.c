@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:27:24 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/28 13:46:02 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	basic_algorithm(t_stack stack_a)
@@ -31,10 +43,22 @@ t_stack	basic_algorithm(t_stack stack_a)
 void	push_to_stack_b(t_stack stack_a, t_stack stack_b)
 {
 	int	n;
+	int	middle;
 
 	n = 0;
+	middle = stack_a.len / 2;
 	while (n < (stack_a.len - 3))
 	{
+		while (n < middle && (stack_a.len - 3) > middle)
+		{
+			if (stack_a.simplified_values[n] <= middle)
+			{
+				push(stack_b, stack_a);
+				n++;
+			}
+			else
+				rotate(stack_a);
+		}
 		push(stack_b, stack_a);
 		n++;
 	}
@@ -55,23 +79,11 @@ void	sorting_stack(t_stack stack_a, t_stack stack_b)
 			move = move_cost_counter(i, stack_a, stack_b);
 			if (move.sum > 0 && move.sum < best_move.sum)
 				best_move = move;
-			// if (move.sum != 0)
-			// {
-				// printf("\n\nmove[%d] = %d\n", i, move.sum);
-				// printf("move_a[%d] = %d\n", i, move.a);
-				// printf("move_b[%d] = %d\n\n", i, move.b);
-			// }
 			i++;
 		}
-		// printf("\n\nbest_move[%d] = %d\n", i, best_move.sum);
-		// printf("best_move_a[%d] = %d\n", i, best_move.a);
-		// printf("best_move_b[%d] = %d\n\n", i, best_move.b);
 		make_moves(stack_a, stack_b, best_move);
 		push(stack_a, stack_b);
-		// printfunction(stack_a, stack_b);
 	}
-	// printf("4.stack_b.simplified_values[500] = %d\n", stack_b.simplified_values[502]);
-	// printf("\n\n\n\n");
 }
 
 void	rearrange_stack(t_stack stack)
@@ -105,38 +117,15 @@ void	push_swap(int argc, char **argv)
 	t_stack	stack_b;
 
 	if (argc == 1)
-		int_error();
+		exit(EXIT_SUCCESS);
 	stack_a = init_stack_a(argv_stack(argc, argv));
+	check_already_sorted(stack_a);
 	stack_a = simplified_values(stack_a);
 	stack_b = init_stack_b(stack_a);
-	//printfunction(stack_a, stack_b);
 	push_to_stack_b(stack_a, stack_b);
-	// printf("\nORIGINAL FUNCTION\n");
-	// printfunction(stack_a, stack_b);
 	stack_a = basic_algorithm(stack_a);
-	// printf("\nBASIC ALGORITHM\n\n");
-	// printfunction(stack_a, stack_b);
 	sorting_stack(stack_a, stack_b);
 	free(stack_b.simplified_values);
 	rearrange_stack(stack_a);
-	//printf("\nRESULT!!!!!!!\n\n");
-	//printfunction(stack_a, stack_b);
 	free(stack_a.simplified_values);
-}
-
-
-
-//--------------------------------------------------------------------------------------------------
-
-void	printfunction(t_stack stack_a, t_stack stack_b)
-{
-	int i = 0;
-	printf("\n");
-	while (i < stack_a.len)
-	{
-		printf("%d\t\t%d\t\t----%d\n", stack_a.simplified_values[i], stack_b.simplified_values[i], i);
-		i++;
-	}
-	printf("_\t\t_\t\t    _\n");
-	printf("a\t\tb\t\t    i");
 }

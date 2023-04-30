@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_check.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:25:36 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/28 13:45:24 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	check_int_numbers(char **argv_stack)
@@ -59,9 +71,5 @@ void	check_already_sorted(t_stack stack_a)
 			break ;
 	}
 	if (i == stack_a.len - 1)
-	{
-		ft_putstr_fd("\n", 1);
 		exit(EXIT_SUCCESS);
-	}
 }
-

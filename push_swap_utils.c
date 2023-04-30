@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imoro-sa <imoro-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 10:27:19 by imoro-sa          #+#    #+#             */
+/*   Updated: 2023/04/28 12:24:04 by imoro-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long int	push_swap_atoi(const char *str)
@@ -23,7 +35,7 @@ long int	push_swap_atoi(const char *str)
 		j = j * 10 + str[i] - '0';
 		i++;
 	}
-	if ((k * j) < -2147483648 || (k *j) > 2147483647)
+	if ((k * j) < -2147483648 || (k * j) > 2147483647)
 		int_error();
 	return ((k * j));
 }
@@ -51,4 +63,17 @@ int	empty_array_check(t_stack stack)
 	if (i == stack.len && stack.simplified_values[i - 1] == 0)
 		return (-1);
 	return (0);
+}
+
+void	free_split(char **argv_stack)
+{
+	int	i;
+
+	i = 0;
+	while (argv_stack[i] != NULL)
+	{
+		free(argv_stack[i]);
+		i++;
+	}
+	free(argv_stack);
 }
